@@ -1,6 +1,6 @@
-const MediaCaptureControl = (function() {
+const MediaCaptureControl = (function(videoCaptureService) {
     const startRecordingVideo = function startRecordingVideo() {
-        console.log("Recording Video");
+        videoCaptureService.startCapture();
     }
 
     const addEventListenersToEventSources = function addEventListenersToEventSources() {
@@ -13,4 +13,4 @@ const MediaCaptureControl = (function() {
     return {
         addEventListenersToEventSources
     };
-})();
+})(VideoRecorder);
