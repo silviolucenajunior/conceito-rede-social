@@ -13,4 +13,4 @@ const MediaCaptureControl = (function(videoCaptureService) {
     return {
         addEventListenersToEventSources
     };
-})(VideoRecorder);
+})(VideoJSRecorder);
