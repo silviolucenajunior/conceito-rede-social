@@ -1,4 +1,4 @@
-const VideoJSRecorder = (function() {
+const VideoJSRecorder = (function(videoRecordNetwork) {
 
     let options = {
         controls: false,
@@ -26,6 +26,10 @@ const VideoJSRecorder = (function() {
         videoJsPlayer.record().start();
     });
 
+    videoJsPlayer.on('finishRecord', function(ev) {
+        videoRecordNetwork.sendVideoToRegistration(videoJsPlayer.recordedData, videoJsPlayer.recordedData.name);
+    });
+
     const startCapture = function() {
         videoJsPlayer.record().getDevice();
     }
@@ -33,4 +37,4 @@ const VideoJSRecorder = (function() {
     return {
         startCapture,
     }
-})();
+})(ImageRegistrationNetwork);
